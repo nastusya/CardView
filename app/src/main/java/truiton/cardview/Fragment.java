@@ -11,9 +11,6 @@ import android.view.ViewGroup;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Created by MSI on 24.02.2017.
- */
 
 public class Fragment extends android.support.v4.app.Fragment {
 
@@ -41,16 +38,18 @@ public class Fragment extends android.support.v4.app.Fragment {
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false));
         recyclerView.setAdapter(mAdapter);
         mAdapter.notifyDataSetChanged();
+        prepareRecipesData();
 
     }
 
     private void prepareRecipesData() {
-        Recipes recipes = new Recipes("Apple with carrot", "Salat", R.drawable.salat);
+
+        Recipes recipes = new Recipes("Apple with carrot", "Salat",R.drawable.salat);
         recipesList.add(recipes);
         Recipes recipes1 = new Recipes("Chicken", "Chicken", R.drawable.chicken);
         recipesList.add(recipes1);
 
-        Recipes recipes2 = new Recipes("Bonbons", "Bonbons", R.drawable.salat);
+        Recipes recipes2 = new Recipes("Bonbons", "Bonbons", R.drawable.bonbons);
         recipesList.add(recipes2);
 
 

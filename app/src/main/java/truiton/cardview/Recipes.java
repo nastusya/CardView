@@ -1,8 +1,5 @@
 package truiton.cardview;
 
-import java.util.ArrayList;
-import java.util.List;
-
 /**
  * Created by MSI on 24.02.2017.
  */
@@ -27,6 +24,8 @@ public class Recipes {
     public String getName() {
         return name;
     }
+
+    public int getIdPhoto() {return idPhoto;}
 
 }
 

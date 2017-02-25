@@ -16,22 +16,22 @@ import java.util.List;
 
 public class RecipesAdapter extends RecyclerView.Adapter<RecipesAdapter.RecipesViewHolder> {
 
-private Fragment fragment;
-private List<Recipes> recipesList;
+    private Fragment fragment;
+    private List<Recipes> recipesList;
 
-    public class RecipesViewHolder extends RecyclerView.ViewHolder{
+    public class RecipesViewHolder extends RecyclerView.ViewHolder {
         public CardView cardView;
         public TextView ingredients;
         public TextView name;
         public ImageView recipesPhoto;
-        public  View itemView;
+        public View itemView;
 
 
-        public RecipesViewHolder (View view){
+        public RecipesViewHolder(View view) {
             super(view);
             itemView = view;
             cardView = (CardView) itemView.findViewById(R.id.card_view);
-            ingredients = (TextView) itemView.findViewById(R.id.recipes_ingrediates);
+            ingredients = (TextView) itemView.findViewById(R.id.recipes_ingredients);
             name = (TextView) itemView.findViewById(R.id.recipes_name);
             recipesPhoto = (ImageView) itemView.findViewById(R.id.recipes_photo);
 
@@ -40,7 +40,7 @@ private List<Recipes> recipesList;
 
     }
 
-    public RecipesAdapter(List<Recipes> recipesList, Fragment fragment){
+    public RecipesAdapter(List<Recipes> recipesList, Fragment fragment) {
         this.recipesList = recipesList;
         this.fragment = fragment;
     }
@@ -54,10 +54,11 @@ private List<Recipes> recipesList;
     }
 
     @Override
-    public void onBindViewHolder (RecipesViewHolder holder, int position){
+    public void onBindViewHolder(RecipesViewHolder holder, int position) {
         Recipes recipes = recipesList.get(position);
         holder.ingredients.setText(recipes.getIngredients());
         holder.name.setText(recipes.getName());
+        holder.recipesPhoto.setImageResource(recipes.getIdPhoto());
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

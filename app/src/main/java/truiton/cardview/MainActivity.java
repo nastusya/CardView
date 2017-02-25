@@ -22,8 +22,8 @@ public class MainActivity extends AppCompatActivity {
         fragmentTransaction.add(R.id.myfragment, firstFragment);
         fragmentTransaction.commit();
     }
-    public void showDetails()
-    {
+
+    public void showDetails() {
         Fragment firstFragment = new Fragment();
         FragmentManager fragmentManager = getSupportFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
