@@ -25,7 +25,9 @@ public class Recipes {
         return name;
     }
 
-    public int getIdPhoto() {return idPhoto;}
+    public int getIdPhoto() {
+        return idPhoto;
+    }
 
 }
 

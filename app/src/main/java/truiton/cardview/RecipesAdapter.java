@@ -30,10 +30,10 @@ public class RecipesAdapter extends RecyclerView.Adapter<RecipesAdapter.RecipesV
         public RecipesViewHolder(View view) {
             super(view);
             itemView = view;
-            cardView = (CardView) itemView.findViewById(R.id.card_view);
-            ingredients = (TextView) itemView.findViewById(R.id.recipes_ingredients);
             name = (TextView) itemView.findViewById(R.id.recipes_name);
+            ingredients = (TextView) itemView.findViewById(R.id.recipes_ingredients);
             recipesPhoto = (ImageView) itemView.findViewById(R.id.recipes_photo);
+            cardView = (CardView) itemView.findViewById(R.id.card_view);
 
 
         }
@@ -56,8 +56,9 @@ public class RecipesAdapter extends RecyclerView.Adapter<RecipesAdapter.RecipesV
     @Override
     public void onBindViewHolder(RecipesViewHolder holder, int position) {
         Recipes recipes = recipesList.get(position);
-        holder.ingredients.setText(recipes.getIngredients());
+
         holder.name.setText(recipes.getName());
+        holder.ingredients.setText(recipes.getIngredients());
         holder.recipesPhoto.setImageResource(recipes.getIdPhoto());
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
