@@ -7,8 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-
-import java.util.List;
+import android.widget.Toast;
 
 /**
  * Created by MSI on 24.02.2017.
@@ -16,10 +15,10 @@ import java.util.List;
 
 public class RecipesAdapter extends RecyclerView.Adapter<RecipesAdapter.RecipesViewHolder> {
 
-    private Fragment fragment;
-    private List<Recipes> recipesList;
+    Recipes ITEM = new Recipes();
 
-    public class RecipesViewHolder extends RecyclerView.ViewHolder {
+
+    class RecipesViewHolder extends RecyclerView.ViewHolder {
         public CardView cardView;
         public TextView ingredients;
         public TextView name;
@@ -40,39 +39,31 @@ public class RecipesAdapter extends RecyclerView.Adapter<RecipesAdapter.RecipesV
 
     }
 
-    public RecipesAdapter(List<Recipes> recipesList, Fragment fragment) {
-        this.recipesList = recipesList;
-        this.fragment = fragment;
-    }
 
     @Override
     public RecipesViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View itemView = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.recipes_list, parent, false);
-
-        return new RecipesViewHolder(itemView);
+        View itemView = LayoutInflater.from(parent.getContext()).inflate(R.layout.recipes_list, parent, false);
+        RecipesViewHolder viewHolder = new RecipesViewHolder(itemView);
+        return viewHolder;
     }
 
     @Override
-    public void onBindViewHolder(RecipesViewHolder holder, int position) {
-        Recipes recipes = recipesList.get(position);
+    public void onBindViewHolder(final RecipesViewHolder holder, int position) {
 
-        holder.name.setText(recipes.getName());
-        holder.ingredients.setText(recipes.getIngredients());
-        holder.recipesPhoto.setImageResource(recipes.getIdPhoto());
+
+        holder.name.setText(ITEM.getRecipies().get(position).getName());
+        holder.ingredients.setText(ITEM.getRecipies().get(position).getIngredients());
+        holder.recipesPhoto.setImageResource(ITEM.getRecipies().get(position).getIdPhoto());
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                MainActivity activity = (MainActivity) fragment.getActivity();
-                activity.showDetails();
+                Toast.makeText(view.getContext(), ITEM.getRecipies().get(holder.getAdapterPosition()).getName(), Toast.LENGTH_SHORT).show();
             }
         });
     }
 
     @Override
-    public int getItemCount() {
-        return recipesList.size();
+    public int getItemCount() {return ITEM.getRecipies().size();
     }
 
 }
-
