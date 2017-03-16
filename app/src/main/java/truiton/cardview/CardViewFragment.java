@@ -15,7 +15,7 @@ import java.util.List;
 
 
 
-public class Fragment extends android.support.v4.app.Fragment {
+public class CardViewFragment extends android.support.v4.app.Fragment {
 
 
     private List<Recipes> recipesList = new ArrayList<>();
