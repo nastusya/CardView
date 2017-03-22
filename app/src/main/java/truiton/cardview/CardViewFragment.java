@@ -11,14 +11,10 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import java.util.ArrayList;
-import java.util.List;
-
 
 
 public class CardViewFragment extends android.support.v4.app.Fragment {
-
-
-    private List<Recipes> recipesList = new ArrayList<>();
+    private ArrayList<Recipes> recipes;
     private RecyclerView recyclerView;
     private RecyclerView.LayoutManager layoutManager;
     private FloatingActionButton changeToGrid;
@@ -29,11 +25,13 @@ public class CardViewFragment extends android.support.v4.app.Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
         View view = inflater.inflate(R.layout.card_view, container, false);
+        getActivity().setTitle("Menu");
+        recipes = ((MainActivity) getActivity()).getRecipesList();
         recyclerView = (RecyclerView) view.findViewById(R.id.recycler_view);
         layoutManager = new LinearLayoutManager(getContext());
         recyclerView.setLayoutManager(layoutManager);
 
-        final RecipesAdapter adapter = new RecipesAdapter();
+        final RecipesAdapter adapter = new RecipesAdapter(recipes);
         recyclerView.setAdapter(adapter);
 
         changeToGrid = (FloatingActionButton) view.findViewById(R.id.changeToGrid);

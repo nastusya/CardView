@@ -7,17 +7,22 @@ import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
-    private List<Recipes> recipesList = new ArrayList<>();
+
+    private RecipeList recipeList;
     private Fragment currentFragment;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-       showDetails(new CardViewFragment());
+        recipeList = new RecipeList();
+        showDetails(new CardViewFragment());
+    }
+
+    public ArrayList<Recipes> getRecipesList(){
+        return this.recipeList.getRecipes();
     }
 
     public void showDetails(Fragment fragment) {

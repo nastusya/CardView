@@ -27,7 +27,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/recipes_photo"
             android:textAllCaps="false"
-            android:textColor="?android:attr/textColorSecondary"
+            android:textColor="?android:attr/textColorTertiary"
             android:textSize="36sp"
             android:fontFamily="sans-serif" />
 
