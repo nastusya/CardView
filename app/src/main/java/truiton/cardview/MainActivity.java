@@ -12,6 +12,7 @@ public class MainActivity extends AppCompatActivity {
 
 
     private RecipeList recipeList;
+
     private Fragment currentFragment;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,12 +22,12 @@ public class MainActivity extends AppCompatActivity {
         showDetails(new CardViewFragment());
     }
 
+
     public ArrayList<Recipes> getRecipesList(){
         return this.recipeList.getRecipes();
     }
 
     public void showDetails(Fragment fragment) {
-
         currentFragment = fragment;
         FragmentManager fragmentManager = getSupportFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
